@@ -1,5 +1,6 @@
 import React from "react";
+import NavBar from "./(components)/NavBar";
 
 export default function page() {
-  return <div>Dashboard Page</div>;
+  return <NavBar />;
 }
