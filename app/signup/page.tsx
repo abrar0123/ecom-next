@@ -1,4 +1,6 @@
 "use client";
+
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Signup = () => {
@@ -8,9 +10,14 @@ const Signup = () => {
     check: false,
   });
 
+  const router = useRouter();
+
   const submitHandler = (e) => {
     e.preventDefault();
     console.log("e", e);
+    if (registerUser.email && registerUser.password) {
+      //   router
+    }
   };
 
   return (
@@ -28,6 +35,10 @@ const Signup = () => {
             id="username"
             type="text"
             placeholder="Username"
+            value={registerUser.email}
+            onChange={(e) =>
+              setregisterUser({ ...registerUser, email: e.target.value })
+            }
           />
         </div>
         <div className="mb-6">
@@ -41,13 +52,23 @@ const Signup = () => {
             className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
             id="password"
             type="password"
+            value={registerUser.password}
+            onChange={(e) =>
+              setregisterUser({ ...registerUser, password: e.target.value })
+            }
             placeholder="********"
           />
         </div>
         <div className="flex items-center justify-between">
+          <p>{registerUser.email}</p>
+          <p>{registerUser.password}</p>
+        </div>
+
+        <div className="flex items-center justify-between">
           <button
             className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
             type="button"
+            onClick={submitHandler}
           >
             Sign Up
           </button>

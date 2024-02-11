@@ -1,9 +1,7 @@
 import Link from "next/link";
-// import { useRouter } from "next/navigation";
 import React from "react";
 
 function NavBar() {
-  //   const router = useRouter();
   return (
     <header>
       <nav className="fixed z-30 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700 py-3 px-4">
@@ -16,14 +14,14 @@ function NavBar() {
                 alt="FlowBite Logo"
               />
               <span className="self-center hidden sm:flex text-2xl font-semibold whitespace-nowrap dark:text-white">
-                Flowbite
+                Netstack
               </span>
             </a>
             <div className="hidden justify-between items-center w-full lg:flex lg:w-auto lg:order-1">
               <ul className="flex flex-col mt-4 space-x-6 text-sm font-medium lg:flex-row xl:space-x-8 lg:mt-0">
                 <li>
                   <Link
-                    href="/flight/883"
+                    href="/profile/678"
                     className="block rounded text-white dark:text-primary-500"
                     aria-current="page"
                   >
@@ -47,12 +45,12 @@ function NavBar() {
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <Link
+                    href="/flight/883"
                     className="block text-gray-700 hover:text-primary-700 dark:text-gray-400 dark:hover:text-white"
                   >
-                    Settings
-                  </a>
+                    Flight
+                  </Link>
                 </li>
                 <li>
                   <button
