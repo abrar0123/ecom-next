@@ -7,6 +7,19 @@ not stored in localstorage > cookies stored
 <!-- bcryptjs -->
 
 hashpass , add security layer , verfiy users
+it hash (secure ) password (not accesible by browser ) ,
+
+<!-- verify Token  :  -->
+
+Hash String copy 1 store into DB , Hash String copy2 store into browser , when user logged in it check if match then logged in
+
+<!-- verify Token Expiry :  -->
+
+token shuold match and time should be certain limit (app)
+
+<!-- Forgot password : enctypted with hash -->
+
+same logic , user email and db store 2 copies of token if token match then user able to forgot pass
 
 <!-- Directory structure  -->
 
