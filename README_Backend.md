@@ -12,3 +12,7 @@ who can acces my database >> adduser , user / pass , built in rule read \* write
 <!-- ************ Database ************  -->
 
 connect >> compass >> copy url >> use
+
+<!-- Directory structure  -->
+
+Layout :comon wrapper for all comp , navbar , card jst render componenst
