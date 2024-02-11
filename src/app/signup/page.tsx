@@ -3,6 +3,7 @@
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
+import NavBar from "../(components)/NavBar";
 
 const Signup = () => {
   const [user, setuser] = useState({
@@ -90,7 +91,7 @@ const Signup = () => {
             type="password"
             value={user.password}
             onChange={(e) => setuser({ ...user, password: e.target.value })}
-            placeholder="********"
+            placeholder=" ******** "
           />
         </div>
         <div className="flex items-center justify-between">

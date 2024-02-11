@@ -29,3 +29,6 @@ Layout :comon wrapper for all comp , navbar , card jst render componenst
 
 i added src >> app >> but tailwind css not add so
 move into tailwind.config.ts / give correct path like i give /src before and error resolved
+
+limit : maximum items displays : 10
+skip : each time skip items and next run 10, 10 (btn)
