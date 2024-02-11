@@ -13,6 +13,7 @@ who can acces my database >> adduser , user / pass , built in rule read \* write
 
 connect >> compass >> copy url >> use
 
-<!-- Directory structure  -->
 
-Layout :comon wrapper for all comp , navbar , card jst render componenst
+<!-- mongoose -->
+
+interect with database , wrapper around mongodb drivers

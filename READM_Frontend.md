@@ -8,7 +8,11 @@ not stored in localstorage > cookies stored
 
 hashpass , add security layer , verfiy users
 
-<!-- mongoose -->
+<!-- Directory structure  -->
 
-interect with database , wrapper around mongodb drivers
+Layout :comon wrapper for all comp , navbar , card jst render componenst
 
+<!-- Tailwind css not style : error   -->
+
+i added src >> app >> but tailwind css not add so
+move into tailwind.config.ts / give correct path like i give /src before and error resolved
