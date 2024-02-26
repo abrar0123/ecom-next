@@ -39,7 +39,7 @@ export async function POST(req: NextRequest) {
     const hashedPassword = await bcrypt.hash(password, salt);
 
     console.log(hashedPassword, "hashedPassword", hashedPassword);
-    
+
     const newUser = new UserModel({
       username,
       email,
