@@ -3,13 +3,14 @@
 import React from "react";
 import { useState } from "react";
 import { useAuthLoginMutation } from "../store/authApi";
+import toast from "react-hot-toast/headless";
 
 const Login = () => {
   const [user, setuser] = useState({
     username: "test1",
     password: "test1",
   });
-  const [authLogin, { data }] = useAuthLoginMutation();
+  const [authLogin, { data, isLoading }] = useAuthLoginMutation();
 
   const loginHandler = async () => {
     try {
@@ -71,7 +72,7 @@ const Login = () => {
               type="button"
               onClick={loginHandler}
             >
-              Login
+              {isLoading ? "load..." : "Login"}
             </button>
           </div>
         </form>

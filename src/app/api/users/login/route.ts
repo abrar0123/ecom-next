@@ -10,15 +10,15 @@ export async function POST(req: NextRequest) {
     const { username } = reqBody;
     console.log("code109 : ==> ", reqBody);
 
-    const userExistuname = await userLoginModel.findOne({ username });
+    const user = await userLoginModel.findOne({ username });
 
-    console.log(userExistuname, "userExist");
+    console.log(user, "userExist");
 
-    if (userExistuname) {
+    if (user) {
       return NextResponse.json({
         message: "User have Successfully logged In ",
         status: 200,
-        userExistuname,
+        user,
       });
     } else {
       return NextResponse.json({
