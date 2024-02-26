@@ -1,5 +1,5 @@
 import { connectDB } from "@/src/lib/dbConfig";
-import User from "@/src/models/userModels";
+import UserModel from "@/src/models/userModels";
 import { NextRequest, NextResponse } from "next/server";
 
 const bcrypt = require("bcryptjs");
@@ -14,34 +14,43 @@ export async function POST(req: NextRequest) {
     connectDB();
 
     const reqBody = await req.json();
-    const { email, username, password } = reqBody;
+    const { email, username, password, check } = reqBody;
     console.log("code107 : ==> ", reqBody);
 
-    //   alreayd check
+    const userExistEmail = await UserModel.findOne({ email });
+    const userExistuname = await UserModel.findOne({ username });
 
-    // const alreadyUser = await User.findOne({ email: email });
-    // if (alreadyUser) {
-    //   return NextResponse.json({
-    //     error: "code107 : User already exists",
-    //     status: 400,
-    //   });
-    // }
+    console.log(userExistuname, "userExist", userExistEmail);
+    if (userExistEmail) {
+      return NextResponse.json({
+        error: "This email record was already exist  ",
+        status: 404,
+      });
+    }
+    if (userExistuname) {
+      return NextResponse.json({
+        error: "This username record was already exist  ",
+        status: 404,
+      });
+    }
 
     // ************* hash password *************
-    // const salt = await bcrypt.genSalt(10);
-    // const hashedPassword = await bcrypt.hash(password, salt);
+    const salt = await bcrypt.genSalt(10);
+    const hashedPassword = await bcrypt.hash(password, salt);
 
-    const newUser = new User({
+    console.log(hashedPassword, "hashedPassword", hashedPassword);
+    
+    const newUser = new UserModel({
       username,
       email,
-      password: password,
+      password: hashedPassword,
     });
 
     const saveUser = await newUser.save();
 
     console.log("new user saved ", saveUser);
     return NextResponse.json({
-      message: "code107 : User Created Successfully",
+      message: "New User was Created Successfully",
       status: 200,
       saveUser,
     });

@@ -8,7 +8,6 @@ import { useSelector } from "react-redux";
 
 const Signup = () => {
   const s = useSelector((state) => state.cart.name);
-  console.log("first", s);
   const [user, setuser] = useState({
     email: "test1@test.com",
     username: "test1",
