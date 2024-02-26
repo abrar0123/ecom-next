@@ -15,9 +15,9 @@ export const authApi = createApi({
 
     authLogin: builder.mutation({
       query: (data) => {
-        console.log("details :", data.details);
+        console.log("details1 :", data.details);
         return {
-          url: "/api/auth/signin",
+          url: "/api/users/login",
           method: "POST",
           body: data.details,
         };
