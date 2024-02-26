@@ -4,6 +4,7 @@ import React from "react";
 import { useState } from "react";
 import { useAuthLoginMutation } from "../store/authApi";
 import toast from "react-hot-toast/headless";
+import { useRouter } from "next/navigation";
 
 const Login = () => {
   const [user, setuser] = useState({
@@ -11,13 +12,15 @@ const Login = () => {
     password: "test1",
   });
   const [authLogin, { data, isLoading }] = useAuthLoginMutation();
-
+  const router = useRouter();
   const loginHandler = async () => {
     try {
       console.log("run test");
       const res = await authLogin({ details: user });
       console.log("user ==> ", res);
-      // router.push("/login");
+      if (res.data.status == 200) {
+        router.push("/home");
+      }
     } catch (error) {
       console.log("error ", error);
     }
