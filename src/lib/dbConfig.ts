@@ -1,12 +1,13 @@
 import mongoose from "mongoose";
 
 export async function connectDB() {
+  const { DB_USERNAME, DB_PASSWORD } = process.env;
+  const connectionStr = `mongodb+srv://${DB_USERNAME}:${DB_PASSWORD}@cluster0.tz45ju0.mongodb.net/next-ecom`;
   try {
-    await mongoose.connect(
-      // "mongodb+srv://theibrar1000:tttt4444@cluster0.yfqxfis.mongodb.net/ecom?retryWrites=true&w=majority"
-      "mongodb+srv://theibrar1000:dUPUjAtYwZFZQL4Z@vbtmernapp.yzmdrue.mongodb.net/vbt"
-    );
+    console.log("first", DB_USERNAME);
+    await mongoose.connect(connectionStr);
     const Connection = mongoose.connection;
+
     Connection.on("connected", () =>
       console.log("code107 :MongoDB Connnection Successfully")
     );

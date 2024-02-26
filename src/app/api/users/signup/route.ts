@@ -1,4 +1,4 @@
-import { connectDB } from "@/src/dbConfig/dbConfig";
+import { connectDB } from "@/src/lib/dbConfig";
 import User from "@/src/models/userModels";
 import { NextRequest, NextResponse } from "next/server";
 
@@ -12,7 +12,6 @@ interface Signup {
 export async function POST(req: NextRequest) {
   try {
     connectDB();
-    console.log("code107 : run 1 ==> ");
 
     const reqBody = await req.json();
     const { email, username, password } = reqBody;
@@ -39,6 +38,7 @@ export async function POST(req: NextRequest) {
     });
 
     const saveUser = await newUser.save();
+
     console.log("new user saved ", saveUser);
     return NextResponse.json({
       message: "code107 : User Created Successfully",
@@ -47,7 +47,5 @@ export async function POST(req: NextRequest) {
     });
   } catch (error: any) {
     return NextResponse.json({ error: error.message }, { status: 500 });
-
-    console.log("code107 : Signup user error ", error);
   }
 }
